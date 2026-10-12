@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>MATH READY SD</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;800&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <aside aria-label="Navigasi utama">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">➗</div>
+          <span class="lbl">MATH READY SD</span>
+        </div>
+        <button class="nav" data-v="siswa" data-tip="Siswa" aria-current="page">
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10" /></svg
+          ><span class="lbl">Siswa</span>
+        </button>
+        <button class="nav" data-v="diag" data-tip="Diagnostic">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="12" cy="12" r="4.5" />
+            <path d="M12 12h.01" /></svg
+          ><span class="lbl">Diagnostic</span>
+        </button>
+        <button class="nav" data-v="guru" data-tip="Guru">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="2" />
+            <rect x="14" y="3" width="7" height="7" rx="2" />
+            <rect x="3" y="14" width="7" height="7" rx="2" />
+            <rect x="14" y="14" width="7" height="7" rx="2" /></svg
+          ><span class="lbl">Guru</span>
+        </button>
+        <button class="nav" data-v="ortu" data-tip="Orang Tua">
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="8" r="3.5" />
+            <path
+              d="M2 20c0-4 3-6 7-6s7 2 7 6M17 5a3.5 3.5 0 010 7M22 20c0-3-1.5-5-4-5.8"
+            /></svg
+          ><span class="lbl">Orang Tua</span>
+        </button>
+        <button class="nav" data-v="admin" data-tip="Admin">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" /></svg
+          ><span class="lbl">Admin</span>
+        </button>
+        <button class="nav" data-v="tentang" data-tip="Tentang">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 11v6M12 7.5v.5" /></svg
+          ><span class="lbl">Tentang</span>
+        </button>
+        <div class="sp"></div>
+        <button
+          class="nav"
+          id="th"
+          data-tip="Mode gelap"
+          aria-label="Ganti mode gelap"
+        >
+          <svg viewBox="0 0 24 24">
+            <path d="M21 13A9 9 0 1111 3a7 7 0 0010 10z" /></svg
+          ><span class="lbl">Mode gelap</span>
+        </button>
+        <button
+          class="nav"
+          id="tog"
+          data-tip="Lipat menu"
+          aria-expanded="true"
+          aria-label="Lipat menu"
+        >
+          <svg class="ch" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg
+          ><span class="lbl">Lipat menu</span>
+        </button>
+      </aside>
+      <main>
+        <div class="addr">
+          🔒 <span>mathreadysd.id<b id="ad">/belajar</b></span>
+          <small>(alamat contoh)</small>
+        </div>
+
+        <section class="view on" id="siswa">
+          <div class="top">
+            <div>
+              <h1>Halo, Ahmad! 👋</h1>
+              <p class="sub">Kelas 6 · Master the Reasoning</p>
+            </div>
+            <div class="chips">
+              <span class="chip lock" title="Tersedia di Fase 2"
+                >🔥 Streak <small>Fase 2</small></span
+              ><span class="chip lock" title="Tersedia di Fase 2"
+                >⭐ XP <small>Fase 2</small></span
+              >
+            </div>
+          </div>
+          <div class="grid">
+            <div class="c hero s8">
+              <h2>Belajar Hari Ini</h2>
+              <h1 id="ht" style="font-size: 26px; margin-top: 8px">
+                Pecahan Senilai
+              </h1>
+              <p>
+                Latihan terpandu · sekitar 12 menit. Dipilih karena ini yang
+                paling perlu diperkuat.
+              </p>
+              <button class="btn" data-toast="Memulai: Pecahan Senilai">
+                Mulai belajar
+              </button>
+              <button
+                class="btn s"
+                data-go="diag"
+                style="
+                  margin-left: 8px;
+                  background: rgba(255, 255, 255, 0.2);
+                  color: #fff;
+                "
+              >
+                Cek kemampuan
+              </button>
+            </div>
+            <div class="c s4">
+              <h2>Misi Hari Ini</h2>
+              <ul class="mis">
+                <li class="done"><span class="ck">✓</span>1 Micro Lesson</li>
+                <li class="done"><span class="ck">✓</span>5 Soal latihan</li>
+                <li><span class="ck"></span>1 Tantangan</li>
+              </ul>
+              <p class="note">Target 10–20 menit</p>
+            </div>
+            <div class="c s8">
+              <h2>Penguasaanmu</h2>
+              <div class="rings" id="rings"></div>
+            </div>
+            <div class="c s4">
+              <h2>Skor Kesiapan</h2>
+              <div class="big" data-n="78" data-s="%">0%</div>
+              <p class="note">
+                Skor Kesiapan adalah indikator internal platform berdasarkan
+                aktivitas belajar dan penguasaan. Bukan nilai resmi TKA.
+              </p>
+            </div>
+            <div class="c s7">
+              <h2>Perjalanan Belajar</h2>
+              <div class="jr">
+                <div>🌱 Kelas 4<br />Fondasi</div>
+                <div>🌿 Kelas 5<br />Berkembang</div>
+                <div class="on">🌳 Kelas 6<br />Penguasaan</div>
+                <div>🚀 TKA<br />Siap</div>
+              </div>
+            </div>
+            <div class="c s5">
+              <h2>📕 Buku Kesalahanku</h2>
+              <div class="mk">
+                <b>Pecahan senilai</b
+                ><span>Kamu masih tertukar antara pembilang dan penyebut.</span>
+              </div>
+              <div class="mk">
+                <b>Kecepatan</b
+                ><span>Satuan waktu belum disamakan sebelum dihitung.</span>
+              </div>
+              <button
+                class="btn s"
+                style="margin-top: 14px"
+                data-toast="Latihan ulang dimulai"
+              >
+                Latihan lagi
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="guru">
+          <div class="top">
+            <div>
+              <h1>Kelas 6A</h1>
+              <p class="sub">Ringkasan penguasaan kelas · data contoh</p>
+            </div>
+            <div class="chips">
+              <button class="btn s" data-go="kelas">Kelas &amp; Siswa</button
+              ><button class="btn s" data-go="tugas">Buat tugas</button>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="c s3 kpi">
+              <b data-n="76" data-s="%">0</b><span>Rata-rata penguasaan</span>
+            </div>
+            <div class="c s3 kpi">
+              <b data-n="5">0</b><span>Siswa perlu dukungan</span>
+            </div>
+            <div class="c s3 kpi">
+              <b data-n="3">0</b><span>Tugas aktif</span>
+            </div>
+            <div class="c s3 kpi">
+              <b data-n="84" data-s="%">0</b><span>Penyelesaian tugas</span>
+            </div>
+            <div class="c s5">
+              <h2>Penguasaan Kelas</h2>
+              <div id="bars"></div>
+            </div>
+            <div class="c s7">
+              <h2>Peta Panas Kelas</h2>
+              <div class="sc"><table id="heat"></table></div>
+              <p class="note">
+                Nama samaran siswa. Status memakai warna, ikon, dan angka.
+              </p>
+            </div>
+            <div class="c s6">
+              <h2>Topik Prioritas</h2>
+              <div class="pr">
+                <span>1. Pecahan</span
+                ><button class="btn s" data-go="tugas" data-topic="Pecahan">
+                  Tugaskan
+                </button>
+              </div>
+              <div class="pr">
+                <span>2. Kecepatan</span
+                ><button class="btn s" data-go="tugas" data-topic="Kecepatan">
+                  Tugaskan
+                </button>
+              </div>
+              <div class="pr">
+                <span>3. Problem Solving</span
+                ><button
+                  class="btn s"
+                  data-go="tugas"
+                  data-topic="Problem Solving"
+                >
+                  Tugaskan
+                </button>
+              </div>
+            </div>
+            <div class="c s6 ai">
+              <span class="tag"
+                >Draf AI · Fase 3 · perlu pertimbangan guru</span
+              >
+              <h2 style="margin-top: 10px">Kemungkinan miskonsepsi</h2>
+              <p class="sub">
+                60% siswa salah pada pecahan senilai. Kemungkinan belum memahami
+                hubungan pembilang dan penyebut.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="ortu">
+          <div class="top">
+            <div>
+              <h1>Perkembangan Ahmad</h1>
+              <p class="sub">Ringkasan minggu ini · Fase 2</p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="c s4 kpi">
+              <b data-n="4">0</b><span>hari belajar</span>
+            </div>
+            <div class="c s4 kpi">
+              <b data-n="87">0</b><span>menit belajar</span>
+            </div>
+            <div class="c s4 kpi">
+              <b data-n="43">0</b><span>soal dikerjakan</span>
+            </div>
+            <div class="c s6">
+              <h2>Menit belajar 7 hari</h2>
+              <svg
+                class="spk"
+                viewBox="0 0 300 90"
+                role="img"
+                aria-label="Menit belajar: 10, 18, 0, 22, 15, 12, 10"
+              >
+                <path
+                  pathLength="1"
+                  d="M10 62 L60 40 L110 80 L160 28 L210 46 L260 54 L290 62"
+                />
+              </svg>
+            </div>
+            <div class="c s6">
+              <div class="st hi">● Kekuatan</div>
+              <h2>Data</h2>
+              <div class="st lo" style="margin-top: 14px">
+                ▲ Perlu diperkuat
+              </div>
+              <h2>Pecahan</h2>
+              <p class="sub">
+                Saran di rumah: pakai contoh makanan untuk melatih pecahan.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="diag">
+          <div id="diag-root" class="w"></div>
+        </section>
+        <section class="view" id="admin">
+          <div class="top">
+            <div>
+              <h1>Admin</h1>
+              <p class="sub">
+                Kelola soal, video, dan kualitas konten · data contoh
+              </p>
+            </div>
+            <span class="tag"
+              >Di aplikasi sungguhan, hanya peran Admin yang bisa membuka
+              halaman ini</span
+            ><button class="btn s" data-go="soal">Kelola soal</button>
+          </div>
+          <div class="grid">
+            <div class="c s3 kpi">
+              <b id="ak1" data-n="0">0</b><span>Soal terbit</span>
+            </div>
+            <div class="c s3 kpi">
+              <b id="ak2" data-n="0">0</b><span>Menunggu review</span>
+            </div>
+            <div class="c s3 kpi">
+              <b data-n="3">0</b><span>Soal perlu ditinjau</span>
+            </div>
+            <div class="c s3 kpi">
+              <b data-n="212">0</b><span>Siswa aktif minggu ini</span>
+            </div>
+            <div class="c s7">
+              <h2>Alur Konten Soal</h2>
+              <p class="sub">Draf → Review → Pilot → Terbit</p>
+              <div class="bar">
+                <div class="r"><span>Draf</span><span id="fc0">0</span></div>
+                <div class="tr">
+                  <i id="fw0" style="background: var(--mute)" data-w="0"></i>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="r">
+                  <span>Review guru</span><span id="fc1">0</span>
+                </div>
+                <div class="tr">
+                  <i id="fw1" style="background: var(--yel)" data-w="0"></i>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="r"><span>Pilot</span><span id="fc2">0</span></div>
+                <div class="tr">
+                  <i id="fw2" style="background: var(--sky)" data-w="0"></i>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="r"><span>Terbit</span><span id="fc3">0</span></div>
+                <div class="tr">
+                  <i id="fw3" style="background: var(--mint)" data-w="0"></i>
+                </div>
+              </div>
+            </div>
+            <div class="c s5">
+              <h2>Siswa Aktif Harian</h2>
+              <svg
+                class="spk"
+                viewBox="0 0 300 90"
+                role="img"
+                aria-label="Siswa aktif 7 hari: 120, 160, 150, 190, 175, 80, 95"
+              >
+                <path
+                  pathLength="1"
+                  d="M10 50 L60 34 L110 38 L160 20 L210 26 L260 62 L290 56"
+                />
+              </svg>
+              <p class="note">7 hari terakhir. Akhir pekan lebih sepi.</p>
+            </div>
+            <div class="c s7">
+              <h2>Kesehatan Soal</h2>
+              <div class="sc">
+                <table>
+                  <tr>
+                    <th>Soal</th>
+                    <th>Topik</th>
+                    <th>% benar</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>MTH6-FRC-101</td>
+                    <td>Pecahan senilai</td>
+                    <td style="text-align: center">15%</td>
+                    <td><span class="st lo">▲ Tinjau</span></td>
+                  </tr>
+                  <tr>
+                    <td>MTH6-KEC-219</td>
+                    <td>Kecepatan</td>
+                    <td style="text-align: center">38%</td>
+                    <td><span class="st mid">◆ Pantau</span></td>
+                  </tr>
+                  <tr>
+                    <td>MTH6-DAT-223</td>
+                    <td>Data</td>
+                    <td style="text-align: center">82%</td>
+                    <td><span class="st hi">● Sehat</span></td>
+                  </tr>
+                  <tr>
+                    <td>MTH6-FRC-107</td>
+                    <td>Pecahan, desimal, persen</td>
+                    <td style="text-align: center">71%</td>
+                    <td><span class="st hi">● Sehat</span></td>
+                  </tr>
+                </table>
+              </div>
+              <p class="note">
+                Soal yang salah dijawab lebih dari 85% siswa ditinjau: bisa jadi
+                siswa belum paham, atau soalnya bermasalah.
+              </p>
+            </div>
+            <div class="c s5">
+              <h2>Antrean Review</h2>
+              <span class="tag"
+                >Draf → Review Guru → Terbit. AI tidak menerbitkan
+                langsung.</span
+              >
+              <div class="pr">
+                <span
+                  >10 soal pecahan kelas 5<br /><small class="sub"
+                    >Draf AI</small
+                  ></span
+                ><span
+                  ><button class="btn s" data-toast="Dibuka untuk ditinjau">
+                    Tinjau
+                  </button></span
+                >
+              </div>
+              <div class="pr">
+                <span
+                  >Soal kecepatan #12<br /><small class="sub"
+                    >Draf guru</small
+                  ></span
+                ><span
+                  ><button class="btn s" data-toast="Dibuka untuk ditinjau">
+                    Tinjau
+                  </button></span
+                >
+              </div>
+            </div>
+            <div class="c s6">
+              <h2>Video Pembelajaran</h2>
+              <div class="pr">
+                <span>Pecahan senilai · 4:12</span
+                ><span class="st hi">● Aktif</span>
+              </div>
+              <div class="pr">
+                <span>Kecepatan · 5:30</span
+                ><span class="st lo">▲ Tautan mati</span
+                ><button class="btn s" data-toast="Pilih video pengganti">
+                  Ganti
+                </button>
+              </div>
+              <div class="pr">
+                <span>Tabel frekuensi · 3:45</span
+                ><span class="st hi">● Aktif</span>
+              </div>
+            </div>
+            <div class="c s6">
+              <h2>Catatan Aktivitas</h2>
+              <div class="pr">
+                <span>Admin menerbitkan MTH6-DAT-223</span
+                ><small class="sub">10:42</small>
+              </div>
+              <div class="pr">
+                <span>Guru meminta revisi MTH6-KEC-219</span
+                ><small class="sub">09:15</small>
+              </div>
+              <div class="pr">
+                <span>Video "Kecepatan" ditandai mati</span
+                ><small class="sub">Kemarin</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="view" id="kelas">
+          <div class="top">
+            <div>
+              <h1>Kelas &amp; Siswa</h1>
+              <p class="sub">Di sini guru memasukkan daftar siswa</p>
+            </div>
+            <span class="tag">Halaman input · Guru</span>
+          </div>
+          <div class="msg nt">
+            Prototipe: data tersimpan sementara dan hilang saat halaman dimuat
+            ulang, karena belum ada database.
+          </div>
+          <div class="grid" style="margin-top: 16px">
+            <div class="c s7">
+              <h2>1. Tempel atau unggah daftar siswa</h2>
+              <p class="sub">
+                Salin dari spreadsheet (format CSV). Pakai data contoh dulu,
+                bukan data siswa sungguhan. Jangan sertakan NIK, alamat, atau
+                nomor telepon.
+              </p>
+              <div class="fl">
+                <label for="sf">Unggah file CSV</label
+                ><input type="file" id="sf" accept=".csv,.txt" />
+              </div>
+              <div class="fl">
+                <label for="stx">Atau tempel isinya</label
+                ><textarea id="stx" rows="7"></textarea>
+              </div>
+              <div class="row2">
+                <button class="btn s gh" id="sex">Pakai contoh</button
+                ><button class="btn s" id="schk">Periksa data</button>
+              </div>
+            </div>
+            <div class="c s5">
+              <h2>Kolom yang dibutuhkan</h2>
+              <pre class="cs">
+nama_lengkap,nama_panggilan,nisn,kelas,rombel,tahun_ajaran</pre
+              >
+              <p class="note">
+                Format kolom nisn sebagai Teks di spreadsheet supaya angka 0 di
+                depan tidak hilang. NISN menjadi nama pengguna login, bukan kata
+                sandi, dan tidak ditampilkan di dashboard. Nama panggilan
+                dipakai sebagai nama tampilan.
+              </p>
+            </div>
+            <div class="c" id="sprev" hidden></div>
+            <div class="c">
+              <h2>2. Siswa di kelas</h2>
+              <div id="slist"></div>
+            </div>
+            <div class="c" id="kartu" hidden></div>
+          </div>
+        </section>
+        <section class="view" id="tugas">
+          <div class="top">
+            <div>
+              <h1>Buat Tugas</h1>
+              <p class="sub">
+                Pilih materi, tentukan siapa, jumlah soal, dan tenggat
+              </p>
+            </div>
+            <span class="tag">Halaman input · Guru</span>
+          </div>
+          <div class="msg nt">
+            Prototipe: data tersimpan sementara dan hilang saat halaman dimuat
+            ulang, karena belum ada database.
+          </div>
+          <div class="grid" style="margin-top: 16px">
+            <div class="c s6">
+              <div class="msg lo" id="tw" hidden role="alert">
+                ▲ Belum ada siswa.
+                <button class="btn s" data-go="kelas" style="margin-left: 6px">
+                  Impor siswa dulu
+                </button>
+              </div>
+              <div class="fl" style="margin-top: 0">
+                <label for="tm">Materi</label
+                ><select id="tm"></select>
+              </div>
+              <div class="fl">
+                <label for="tt">Untuk</label
+                ><select id="tt"></select>
+              </div>
+              <div id="tp"></div>
+              <div class="fl">
+                <label for="tn">Jumlah soal (5 sampai 20)</label
+                ><input id="tn" type="number" min="5" max="20" value="10" />
+              </div>
+              <div class="fl">
+                <label for="td">Tenggat</label><input id="td" type="date" />
+              </div>
+              <div class="msg" id="te" role="alert"></div>
+              <button class="btn" id="tb" style="width: 100%; margin-top: 18px">
+                Tugaskan
+              </button>
+            </div>
+            <div class="c s6">
+              <h2>Tugas aktif</h2>
+              <div id="tl"></div>
+            </div>
+          </div>
+        </section>
+        <section class="view" id="soal">
+          <div class="top">
+            <div>
+              <h1>Kelola Soal</h1>
+              <p class="sub">
+                Di sini Admin dan guru menulis atau mengimpor soal
+              </p>
+            </div>
+            <span class="tag">Halaman input · Admin</span>
+          </div>
+          <div class="msg nt">
+            Soal baru selalu masuk sebagai Draf dan harus diperiksa guru sebelum
+            terbit. AI tidak menerbitkan langsung. Prototipe: data hilang saat
+            halaman dimuat ulang.
+          </div>
+          <div class="grid" style="margin-top: 16px">
+            <div class="c s7">
+              <h2>Tulis soal baru</h2>
+              <div class="ff">
+                <div class="fl">
+                  <label for="qg">Kelas</label
+                  ><select id="qg">
+                    <option>6</option>
+                    <option>5</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="qd">Domain</label
+                  ><select id="qd">
+                    <option>Bilangan</option>
+                    <option>Geometri dan Pengukuran</option>
+                    <option>Data</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="qtp">Topik</label
+                  ><input
+                    id="qtp"
+                    list="dl"
+                    placeholder="Contoh: Pecahan"
+                  /><datalist id="dl"></datalist>
+                </div>
+                <div class="fl">
+                  <label for="ql">Label</label
+                  ><select id="ql">
+                    <option>CORE_TKA</option>
+                    <option>PREREQUISITE</option>
+                    <option>ENRICHMENT</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="qc">Tingkat kognitif</label
+                  ><select id="qc">
+                    <option>Basic</option>
+                    <option>Application</option>
+                    <option>Reasoning</option>
+                    <option>Problem Solving</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="qf2">Kesulitan</label
+                  ><select id="qf2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="qty">Tipe soal</label
+                  ><select id="qty">
+                    <option value="PG">PG: satu jawaban benar</option>
+                    <option value="PGK_MCMA">
+                      PGK-MCMA: lebih dari satu jawaban benar
+                    </option>
+                    <option value="PGK_KATEGORI">
+                      PGK-Kategori: Benar atau Salah per pernyataan
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="fl">
+                <label for="qs">Stimulus (opsional)</label
+                ><textarea id="qs" rows="2"></textarea>
+              </div>
+              <div class="fl">
+                <label for="qq">Teks soal</label
+                ><textarea id="qq" rows="3"></textarea>
+              </div>
+              <div class="fl">
+                <label id="qlb">Pilihan jawaban (tandai satu kunci)</label>
+                <div class="op">
+                  <input
+                    type="radio"
+                    name="qk"
+                    value="A"
+                    id="qkA"
+                    aria-label="Kunci jawaban A"
+                  /><input
+                    id="qo1"
+                    placeholder="Pilihan A"
+                    aria-label="Pilihan A"
+                  />
+                </div>
+                <div class="op">
+                  <input
+                    type="radio"
+                    name="qk"
+                    value="B"
+                    id="qkB"
+                    aria-label="Kunci jawaban B"
+                  /><input
+                    id="qo2"
+                    placeholder="Pilihan B"
+                    aria-label="Pilihan B"
+                  />
+                </div>
+                <div class="op">
+                  <input
+                    type="radio"
+                    name="qk"
+                    value="C"
+                    id="qkC"
+                    aria-label="Kunci jawaban C"
+                  /><input
+                    id="qo3"
+                    placeholder="Pilihan C"
+                    aria-label="Pilihan C"
+                  />
+                </div>
+                <div class="op">
+                  <input
+                    type="radio"
+                    name="qk"
+                    value="D"
+                    id="qkD"
+                    aria-label="Kunci jawaban D"
+                  /><input
+                    id="qo4"
+                    placeholder="Pilihan D"
+                    aria-label="Pilihan D"
+                  />
+                </div>
+              </div>
+              <div class="fl">
+                <label for="qe">Pembahasan</label
+                ><textarea id="qe" rows="2"></textarea>
+              </div>
+              <div class="fl">
+                <label for="qm2">Alasan pilihan salah dipilih (opsional)</label
+                ><input
+                  id="qm2"
+                  placeholder="Contoh: tertukar pembilang dan penyebut"
+                />
+              </div>
+              <div class="msg" id="qm" role="alert"></div>
+              <button
+                class="btn"
+                id="qsv"
+                style="width: 100%; margin-top: 18px"
+              >
+                Simpan sebagai Draf
+              </button>
+            </div>
+            <div class="c s5">
+              <h2>Atau impor dari CSV</h2>
+              <p class="sub">Untuk banyak soal sekaligus.</p>
+              <div class="fl">
+                <label for="qfile">Unggah file CSV</label
+                ><input type="file" id="qfile" accept=".csv,.txt" />
+              </div>
+              <div class="fl">
+                <label for="qt">Atau tempel isinya</label
+                ><textarea id="qt" rows="6"></textarea>
+              </div>
+              <div class="row2">
+                <button class="btn s gh" id="qex">Pakai contoh</button
+                ><button class="btn s" id="qchk">Periksa data</button>
+              </div>
+              <p class="note">
+                Kolom wajib: grade, domain, topic, question, option_a sampai
+                option_d, correct_answer, explanation. Kolom opsional
+                question_type: PG (bawaan), PGK_MCMA (correct_answer contoh
+                A,C), atau PGK_KATEGORI (contoh B,S,B,S). Daftar kolom lengkap
+                ada di dokumen Rancangan Database.
+              </p>
+            </div>
+            <div class="c" id="qprev" hidden></div>
+            <div class="c">
+              <h2>Daftar soal</h2>
+              <p class="sub">
+                Draf → Review guru → Pilot → Terbit. Soal yang terbit masuk ke
+                pilihan materi di Buat Tugas.
+              </p>
+              <div class="row2" style="margin-top: 0">
+                <div class="fl" style="margin: 0">
+                  <label for="qft">Topik</label
+                  ><select id="qft"></select>
+                </div>
+                <div class="fl" style="margin: 0">
+                  <label for="qfs">Status</label
+                  ><select id="qfs">
+                    <option value="">Semua</option>
+                    <option value="0">Draf</option>
+                    <option value="1">Review guru</option>
+                    <option value="2">Pilot</option>
+                    <option value="3">Terbit</option>
+                  </select>
+                </div>
+                <div class="fl" style="margin: 0">
+                  <label for="qfy">Tipe</label
+                  ><select id="qfy">
+                    <option value="">Semua</option>
+                    <option value="PG">PG</option>
+                    <option value="PGK_MCMA">PGK-MCMA</option>
+                    <option value="PGK_KATEGORI">PGK-Kategori</option>
+                  </select>
+                </div>
+              </div>
+              <p class="sub" id="qsum" style="margin-top: 12px"></p>
+              <div id="qlist"></div>
+              <div class="row2">
+                <button class="btn s gh" data-bulk="1">
+                  Naikkan semua yang tampil ke tahap berikutnya (demo)
+                </button>
+              </div>
+              <p class="note">
+                Tombol demo hanya untuk mempercepat percobaan alur. Di aplikasi
+                sungguhan, setiap soal diperiksa guru satu per satu sebelum
+                terbit.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="view" id="tentang">
+          <div class="top">
+            <div>
+              <h1>Tentang MATH READY SD</h1>
+              <p class="sub">Belajar Sekarang. Kuasai Konsepnya. Siap TKA.</p>
+            </div>
+          </div>
+          <div class="c">
+            <p>
+              Platform pembelajaran matematika SD/MI kelas 4–6 dengan mastery
+              learning, pembelajaran adaptif, dan analitik asesmen. Platform ini
+              <b>bukan platform resmi TKA</b>; soal berformat "bergaya TKA".
+            </p>
+          </div>
+          <div class="dev">
+            <img
+              src="data:image/jpeg;base64,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"
+              alt="Foto Riski Hermawan, S.Pd."
+            />
+            <div>
+              <b>Dibuat dengan ❤️ oleh Riski Hermawan, S.Pd.</b>
+              <p class="sub">
+                Wali Kelas 6A<br />SD Negeri Sapuro 05, Kota Pekalongan
+              </p>
+            </div>
+          </div>
+        </section>
+        <p class="ft">MATH READY SD · Learning &amp; TKA Readiness Platform</p>
+      </main>
+    </div>
+    <div id="toast" role="status"></div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
